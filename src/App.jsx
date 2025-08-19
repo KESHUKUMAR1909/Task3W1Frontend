@@ -10,7 +10,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/users");
+      const res = await axios.get("https://task3w1backend-2.onrender.com/users");
       setUsers(res.data);
     } catch (err) {
       console.error(err);
@@ -19,7 +19,7 @@ function App() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/history");
+      const res = await axios.get("https://task3w1backend-2.onrender.com/history");
       setHistory(res.data);
     } catch (err) {
       console.error(err);
@@ -34,7 +34,7 @@ function App() {
   const handleClaim = async () => {
     if (!selectedUser) return alert("Select a user first");
     try {
-      const res = await axios.post("http://localhost:5000/claim", { userId: selectedUser });
+      const res = await axios.post("https://task3w1backend-2.onrender.com/claim", { userId: selectedUser });
       setPointsAwarded(res.data.points);
       fetchUsers();
       fetchHistory(); // update history after claim
@@ -47,7 +47,7 @@ function App() {
   const handleAddUser = async () => {
     if (!newUser) return;
     try {
-      await axios.post("http://localhost:5000/users", { name: newUser });
+      await axios.post("https://task3w1backend-2.onrender.com/users", { name: newUser });
       setNewUser("");
       fetchUsers();
     } catch (err) {
